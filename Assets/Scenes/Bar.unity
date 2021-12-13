@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -780,6 +780,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.20210001
       objectReference: {fileID: 0}
+    - target: {fileID: -5622281322335474211, guid: 75703d1772c96f54584c006b02ed020c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 702094f0fec67614199dc4eb15358b1f, type: 2}
     - target: {fileID: -3955787647121158546, guid: 75703d1772c96f54584c006b02ed020c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.024
@@ -844,6 +848,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.20192327
       objectReference: {fileID: 0}
+    - target: {fileID: 5079698016180251601, guid: 75703d1772c96f54584c006b02ed020c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 702094f0fec67614199dc4eb15358b1f, type: 2}
     - target: {fileID: 6899545358846430322, guid: 75703d1772c96f54584c006b02ed020c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.1583
@@ -6236,6 +6244,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.22
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 8f4feff9db1a0fd4bab64ce5c19f7e3d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8347221205978777541, guid: 8f4feff9db1a0fd4bab64ce5c19f7e3d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -6629,6 +6641,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 9fc862876ed96594593a3a7251e4700e, type: 2}
     - target: {fileID: -1439730007547781893, guid: 8f4feff9db1a0fd4bab64ce5c19f7e3d, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1439730007547781893, guid: 8f4feff9db1a0fd4bab64ce5c19f7e3d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9fc862876ed96594593a3a7251e4700e, type: 2}
@@ -6675,6 +6691,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8f4feff9db1a0fd4bab64ce5c19f7e3d, type: 3}
       propertyPath: m_Name
       value: glass pack
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8f4feff9db1a0fd4bab64ce5c19f7e3d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1129496810705857465, guid: 8f4feff9db1a0fd4bab64ce5c19f7e3d, type: 3}
       propertyPath: m_Materials.Array.data[0]
