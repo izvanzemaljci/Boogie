@@ -2215,10 +2215,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1408666112057549777, guid: 5ce7e56eee12e824c97ffdb99b88a0c5, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 10db71cc97769d141bf92588b2ffced7, type: 2}
     - target: {fileID: 2799318365611906553, guid: 5ce7e56eee12e824c97ffdb99b88a0c5, type: 3}
       propertyPath: m_Name
       value: Podium
