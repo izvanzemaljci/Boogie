@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    [Header("Components")]
+    [SerializeField]
+    private Animator animator;
+
     [Header("Instance")]
     [SerializeField]
     private float movementSpeed;
@@ -38,11 +42,17 @@ public class CharacterController : MonoBehaviour
             return;
         }
 
+        PlayAnimation(true);
         transform.position = Vector3.MoveTowards(transform.position, unitCollider.bounds.center, movementSpeed * Time.deltaTime);
     }
 
-    private void PlayAnimation()
+    private void PlayAnimation(bool value)
     {
+        if (!animator)
+        {
+            return;
+        }
 
+        animator.SetBool("isDancing", value);
     }
 }

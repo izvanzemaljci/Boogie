@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c22572c2466d747ab0ba7d511b81e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1309842746155342980}
   movementSpeed: 14
 --- !u!1 &6090808628968823045
 GameObject:
@@ -143,10 +144,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robo
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 2540b54ea8e09094982a3155ae064b20, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7595dec6fa2ad9744b0fc87acc7baa0d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2540b54ea8e09094982a3155ae064b20, type: 3}
 --- !u!4 &4957710974150493950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2540b54ea8e09094982a3155ae064b20, type: 3}
+  m_PrefabInstance: {fileID: 4848101498279076117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1309842746155342980 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 2540b54ea8e09094982a3155ae064b20, type: 3}
   m_PrefabInstance: {fileID: 4848101498279076117}
   m_PrefabAsset: {fileID: 0}
