@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class UnitController : MonoBehaviour
 {
+    [Header("Instance")]
+    [HideInInspector]
     private Unit lastHitUnit;
 
     void Update()

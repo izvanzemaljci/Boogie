@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    [Header("Instance")]
     [SerializeField]
     private float movementSpeed;
 
+    [HideInInspector]
     private Collider unitCollider;
 
     private void Update()
@@ -37,5 +39,10 @@ public class CharacterController : MonoBehaviour
         }
 
         transform.position = Vector3.MoveTowards(transform.position, unitCollider.bounds.center, movementSpeed * Time.deltaTime);
+    }
+
+    private void PlayAnimation()
+    {
+
     }
 }

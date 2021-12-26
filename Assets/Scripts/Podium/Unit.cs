@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField]
     private Renderer unitRenderer;
 
+    [Header("Instance")]
     [SerializeField]
     private Material onMaterial;
 
