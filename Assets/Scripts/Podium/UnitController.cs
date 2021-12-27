@@ -3,8 +3,18 @@ using UnityEngine;
 public class UnitController : MonoBehaviour
 {
     [Header("Instance")]
+    [SerializeField]
+    private Unit[] units;
+
     [HideInInspector]
     private Unit lastHitUnit;
+
+    public static UnitController I;
+
+    private void Awake()
+    {
+        I = this;
+    }
 
     void Update()
     {
@@ -14,6 +24,19 @@ public class UnitController : MonoBehaviour
         }
 
         GetLastHitUnit();
+    }
+
+    public Unit GetUnitById(string id)
+    {
+        foreach (Unit unit in units)
+        {
+            if (unit.UnitId == id)
+            {
+                return unit;
+            }
+        }
+
+        return null;
     }
 
     private void GetLastHitUnit()
@@ -29,7 +52,7 @@ public class UnitController : MonoBehaviour
 
     private void OnUnitHit()
     {
-        if(!lastHitUnit)
+        if (!lastHitUnit)
         {
             return;
         }

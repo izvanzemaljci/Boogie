@@ -1,6 +1,8 @@
 [System.Serializable]
 public class Beat
 {
-    public Unit unit;
+    public string unitID;
     public float time;
+
+    public Unit Unit => UnitController.I.GetUnitById(unitID);
 }

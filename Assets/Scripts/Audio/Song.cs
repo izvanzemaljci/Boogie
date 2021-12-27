@@ -38,7 +38,7 @@ public class Song : MonoBehaviour
             {
                 if(beat.time == timer)
                 {
-                    beat.unit.UnitLit();
+                    beat.Unit.UnitLit();
                 }
             }
 
