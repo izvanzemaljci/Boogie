@@ -4,10 +4,7 @@ using UnityEngine;
 public class Song : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip audioClip;
-
-    [SerializeField]
-    private Beat[] beats;
+    private SongAsset songAsset;
 
     private void OnEnable() 
     {
@@ -24,7 +21,7 @@ public class Song : MonoBehaviour
 
     public void Play()
     {
-        SongManager.I.Play(audioClip);
+        SongManager.I.Play(songAsset.audioClip);
 
         StartCoroutine(PlaySong());
     }
@@ -33,11 +30,11 @@ public class Song : MonoBehaviour
     {
         float timer = 0f;
 
-        while(timer <= audioClip.length)
+        while(timer <= songAsset.audioClip.length)
         {
             timer += Time.deltaTime;
 
-            foreach(Beat beat in beats)
+            foreach(Beat beat in songAsset.beats)
             {
                 if(beat.time == timer)
                 {
