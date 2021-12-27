@@ -1,12 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
+//TODO: should maybe be moved to song manager idk we'll see
 public class Song : MonoBehaviour
 {
     [SerializeField]
     private SongAsset songAsset;
 
-    private void OnEnable() 
+    private void OnEnable()
     {
         //sort playing times
 
@@ -16,7 +17,7 @@ public class Song : MonoBehaviour
 
     private void SortPlayingTimes()
     {
-        
+
     }
 
     public void Play()
@@ -30,13 +31,13 @@ public class Song : MonoBehaviour
     {
         float timer = 0f;
 
-        while(timer <= songAsset.audioClip.length)
+        while (timer <= songAsset.audioClip.length)
         {
             timer += Time.deltaTime;
 
-            foreach(Beat beat in songAsset.beats)
+            foreach (Beat beat in songAsset.beats)
             {
-                if(beat.time == timer)
+                if (Mathf.Floor(timer) == beat.time)
                 {
                     beat.Unit.UnitLit();
                 }

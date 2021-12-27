@@ -17,6 +17,13 @@ public class SongManager : MonoBehaviour
         I = this;    
     }
 
+    private void Start() {
+        foreach(Song song in songs)
+        {
+            Instantiate(song);
+        }
+    }
+
     public void Play(AudioClip audioClip)
     {
         audioSource.clip = audioClip;
