@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261258327d4ea0248b30c16385c95846, type: 3}
   m_Name: Song Asset Test
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 0}
-  beats: []
+  audioClip: {fileID: 8300000, guid: 424096749ab3bc749a20ac7cb80600d8, type: 3}
+  beats:
+  - unitID: 0-3
+    time: 3
+  - unitID: 0-5
+    time: 5
