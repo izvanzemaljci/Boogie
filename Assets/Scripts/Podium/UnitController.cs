@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class UnitController : MonoBehaviour
@@ -21,19 +20,19 @@ public class UnitController : MonoBehaviour
         GameManager.OnGameStateChanged += OnGameStateChanged;
     }
 
-    private void OnDestroy() 
+    private void OnDestroy()
     {
-        GameManager.OnGameStateChanged -= OnGameStateChanged;    
+        GameManager.OnGameStateChanged -= OnGameStateChanged;
     }
 
 
     void Update()
     {
-        if(!enableInput)
+        if (!enableInput)
         {
             return;
         }
-        
+
         if (!Input.GetMouseButtonDown(0))
         {
             return;
@@ -44,12 +43,10 @@ public class UnitController : MonoBehaviour
 
     private void OnGameStateChanged(GameState state)
     {
-        if(state != GameState.PlayerTurn)
+        if (state == GameState.PlayerTurn)
         {
-            return;
+            enableInput = true;
         }
-
-        enableInput = true;
     }
 
     public Unit GetUnitById(string id)

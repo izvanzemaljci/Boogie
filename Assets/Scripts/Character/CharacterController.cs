@@ -13,8 +13,34 @@ public class CharacterController : MonoBehaviour
     [HideInInspector]
     private Collider unitCollider;
 
+    private bool enableInput = false;
+
+
+    private void Awake()
+    {
+        GameManager.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= OnGameStateChanged;
+    }
+
+    private void OnGameStateChanged(GameState state)
+    {
+        if (state == GameState.PlayerTurn)
+        {
+            enableInput = true;
+        }
+    }
+
     private void Update()
     {
+        if (!enableInput)
+        {
+            return;
+        }
+
         MoveToUnit();
 
         if (!Input.GetMouseButtonDown(0))
