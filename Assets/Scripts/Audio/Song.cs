@@ -45,5 +45,7 @@ public class Song : MonoBehaviour
 
             yield return null;
         }
+
+        GameManager.I.SetState(GameState.PlayerTurn);
     }
 }

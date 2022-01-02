@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UnitController : MonoBehaviour
@@ -9,21 +10,46 @@ public class UnitController : MonoBehaviour
     [HideInInspector]
     private Unit lastHitUnit;
 
+    private bool enableInput = false;
+
     public static UnitController I;
 
     private void Awake()
     {
         I = this;
+
+        GameManager.OnGameStateChanged += OnGameStateChanged;
     }
+
+    private void OnDestroy() 
+    {
+        GameManager.OnGameStateChanged -= OnGameStateChanged;    
+    }
+
 
     void Update()
     {
+        if(!enableInput)
+        {
+            return;
+        }
+        
         if (!Input.GetMouseButtonDown(0))
         {
             return;
         }
 
         GetLastHitUnit();
+    }
+
+    private void OnGameStateChanged(GameState state)
+    {
+        if(state != GameState.PlayerTurn)
+        {
+            return;
+        }
+
+        enableInput = true;
     }
 
     public Unit GetUnitById(string id)

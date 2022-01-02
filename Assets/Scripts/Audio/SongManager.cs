@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,13 +13,26 @@ public class SongManager : MonoBehaviour
 
     public static SongManager I;
 
-    private void Awake() 
+    private void Awake()
     {
-        I = this;    
+        I = this;
+
+        GameManager.OnGameStateChanged += OnGameStateChanged;
     }
 
-    private void Start() {
-        foreach(Song song in songs)
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= OnGameStateChanged;
+    }
+
+    private void OnGameStateChanged(GameState state)
+    {
+        if (state != GameState.Tutorial)
+        {
+            return;
+        }
+
+        foreach (Song song in songs)
         {
             Instantiate(song);
         }
