@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class SongManager : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField]
     private AudioSource audioSource;
 
+    [Header("Instance")]
     [SerializeField]
     private Song[] songs;
 
@@ -22,6 +24,11 @@ public class SongManager : MonoBehaviour
         GameManager.OnGameStateChanged -= OnGameStateChanged;
     }
 
+    public Song GetSong(int id)
+    {
+        return songs[id];
+    }
+
     private void OnGameStateChanged(GameState state)
     {
         if (state == GameState.Tutorial)
@@ -36,6 +43,8 @@ public class SongManager : MonoBehaviour
     public void Play(AudioClip audioClip)
     {
         audioSource.clip = audioClip;
+
+        UIManager.I.SetTimer(audioClip.length);
 
         audioSource.Play();
     }

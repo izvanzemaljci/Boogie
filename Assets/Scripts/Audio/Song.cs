@@ -7,6 +7,8 @@ public class Song : MonoBehaviour
     [SerializeField]
     private SongAsset songAsset;
 
+    public SongAsset SongAsset => songAsset;
+
     private void OnEnable()
     {
         //sort playing times

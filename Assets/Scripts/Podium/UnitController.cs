@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class UnitController : MonoBehaviour
@@ -46,6 +48,9 @@ public class UnitController : MonoBehaviour
         if (state == GameState.PlayerTurn)
         {
             enableInput = true;
+
+            //TODO:
+            CheckUnits(SongManager.I.GetSong(0));
         }
     }
 
@@ -81,5 +86,39 @@ public class UnitController : MonoBehaviour
         }
 
         lastHitUnit.UnitLit();
+    }
+
+    private void CheckUnits(Song song)
+    {
+        SongManager.I.Play(song.SongAsset.audioClip);
+
+        StartCoroutine(CompareUnits(song));
+    }
+
+    private IEnumerator CompareUnits(Song song)
+    {
+        float timer = 0f;
+
+        while (timer <= song.SongAsset.audioClip.length)
+        {
+            timer += Time.deltaTime;
+
+            foreach (Beat beat in song.SongAsset.beats)
+            {
+                if (Mathf.Floor(timer) == beat.time)
+                {
+                    if(beat.Unit == lastHitUnit)
+                    {
+                        Debug.Log("correct");
+                    }
+                    else
+                    {
+                        Debug.Log("wrong");
+                    }
+                }
+            }
+
+            yield return null;
+        }
     }
 }
