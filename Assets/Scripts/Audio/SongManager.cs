@@ -33,6 +33,7 @@ public class SongManager : MonoBehaviour
     {
         if (state == GameState.Tutorial)
         {
+            //TODO: Will be done when we manage song selection 
             foreach (Song song in songs)
             {
                 Instantiate(song);

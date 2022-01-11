@@ -49,7 +49,7 @@ public class UnitController : MonoBehaviour
         {
             enableInput = true;
 
-            //TODO:
+            //TODO: Will be done when we manage song selection 
             CheckUnits(SongManager.I.GetSong(0));
         }
     }
