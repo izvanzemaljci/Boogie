@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 424096749ab3bc749a20ac7cb80600d8, type: 3}
   beats:
-  - unitID: 0-3
-    time: 3
-  - unitID: 0-5
-    time: 5
+  - UnitID: 0-4
+    Time: 2
+  - UnitID: 2-3
+    Time: 4
+  - UnitID: 6-1
+    Time: 6
