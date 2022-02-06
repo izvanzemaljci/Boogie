@@ -50,7 +50,7 @@ public class UnitController : MonoBehaviour
             enableInput = true;
 
             //TODO: Will be done when we manage song selection 
-            CheckUnits(SongManager.I.GetSong(0));
+            CheckUnits(SongManager.I.GetSong());
         }
     }
 
@@ -88,32 +88,38 @@ public class UnitController : MonoBehaviour
         lastHitUnit.UnitLit();
     }
 
-    private void CheckUnits(Song song)
+    private void CheckUnits(SongAsset songAsset)
     {
-        SongManager.I.Play(song.SongAsset.audioClip);
+        SongManager.I.PlayAudioClip(songAsset.audioClip);
 
-        StartCoroutine(CompareUnits(song));
+        StartCoroutine(CompareUnits(songAsset));
     }
 
-    private IEnumerator CompareUnits(Song song)
+    private IEnumerator CompareUnits(SongAsset songAsset)
     {
+        Debug.Log("started");
         float timer = 0f;
 
-        while (timer <= song.SongAsset.audioClip.length)
+        while (timer <= songAsset.audioClip.length)
         {
             timer += Time.deltaTime;
 
-            foreach (Beat beat in song.SongAsset.beats)
+            foreach (Beat beat in songAsset.beats)
             {
-                if (Mathf.Floor(timer) == beat.time)
+                var floorTimer = (int)Mathf.Floor(timer);
+                if (floorTimer == beat.Time)
                 {
                     if(beat.Unit == lastHitUnit)
                     {
-                        Debug.Log("correct");
+                        Debug.Log("correct " + beat.UnitID + " " + lastHitUnit.UnitId);
+                        var hit = new Hit(true, lastHitUnit.UnitId, floorTimer);
+                        ReactionManager.I.AddHit(hit);
                     }
                     else
                     {
-                        Debug.Log("wrong");
+                        //Debug.Log("wrong " + beat.UnitID + " " + lastHitUnit.UnitId);
+                        var hit = new Hit(false, lastHitUnit.UnitId, floorTimer);
+                        ReactionManager.I.AddHit(hit);
                     }
                 }
             }

@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SetState(GameState.Tutorial);
+        //SetState(GameState.Tutorial);
     }
 
 
