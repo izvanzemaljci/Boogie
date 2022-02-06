@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +8,8 @@ public class ReactionManager : MonoBehaviour
     private List<Hit> hits;
 
     public static ReactionManager I;
+
+    public event Action<bool> OnNewHitAdded;
 
     private void Awake()
     {
@@ -20,6 +22,11 @@ public class ReactionManager : MonoBehaviour
     {
         foreach (Hit hit in hits)
         {
+            if (hit.timeStamp != newHit.timeStamp)
+            {
+                return;
+            }
+
             if (hit.timeStamp == newHit.timeStamp && hit.unitID == newHit.unitID && hit.result == newHit.result)
             {
                 return;
@@ -27,5 +34,7 @@ public class ReactionManager : MonoBehaviour
         }
 
         hits.Add(newHit);
+
+        OnNewHitAdded?.Invoke(newHit.result);
     }
 }
