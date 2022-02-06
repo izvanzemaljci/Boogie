@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 261258327d4ea0248b30c16385c95846, type: 3}
-  m_Name: Song Asset Test
+  m_Name: Song Asset Test 1
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 55f98a534b2577446a4497d9d00fd1e9, type: 3}
+  audioClip: {fileID: 8300000, guid: 22c058aa87c9a62469ffc3ea68a6d5c4, type: 3}
   beats:
-  - UnitID: 0-4
+  - UnitID: 3-6
     Time: 2
-  - UnitID: 2-3
+  - UnitID: 1-7
     Time: 4
-  - UnitID: 6-1
+  - UnitID: 0-5
     Time: 6
-  - UnitID: 3-2
+  - UnitID: 5-5
     Time: 8
