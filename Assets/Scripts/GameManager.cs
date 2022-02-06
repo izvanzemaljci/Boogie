@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleScoring()
     {
+        UIManager.I.ShowReplayMenu();
     }
 
     private void HandlePlayerTurn()

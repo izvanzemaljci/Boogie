@@ -33,7 +33,16 @@ public class SongManager : MonoBehaviour
     public void PlayTutorial(SongAsset songAsset)
     {
         this.songAsset = songAsset;
-        
+
+        StartCoroutine(ShowInstructions());
+    }
+
+    private IEnumerator ShowInstructions()
+    {
+        UIManager.I.ShowTutorialInstruction();
+
+        yield return new WaitForSeconds(2f);
+
         PlayAudioClip(songAsset.audioClip);
 
         StartCoroutine(PlaySongTutorial(songAsset));

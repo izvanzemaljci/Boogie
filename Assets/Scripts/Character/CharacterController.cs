@@ -15,6 +15,12 @@ public class CharacterController : MonoBehaviour
 
     private bool enableInput = false;
 
+    private Vector3 initialPosition;
+
+    private void Start()
+    {
+        initialPosition = transform.position;
+    }
 
     private void Awake()
     {
@@ -30,7 +36,12 @@ public class CharacterController : MonoBehaviour
     {
         if (state == GameState.PlayerTurn)
         {
+            transform.position = initialPosition;
             enableInput = true;
+        }
+        else
+        {
+            enableInput = false;
         }
     }
 

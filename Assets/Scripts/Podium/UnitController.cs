@@ -47,11 +47,20 @@ public class UnitController : MonoBehaviour
     {
         if (state == GameState.PlayerTurn)
         {
-            enableInput = true;
-
-            //TODO: Will be done when we manage song selection 
-            CheckUnits(SongManager.I.GetSong());
+            StartCoroutine(ShowInstructions());
         }
+    }
+
+    private IEnumerator ShowInstructions()
+    {
+        UIManager.I.ShowPlayInstruction();
+
+        yield return new WaitForSeconds(2f);
+
+        enableInput = true;
+
+        //TODO: Will be done when we manage song selection 
+        CheckUnits(SongManager.I.GetSong());
     }
 
     public Unit GetUnitById(string id)
@@ -109,7 +118,7 @@ public class UnitController : MonoBehaviour
                 var floorTimer = (int)Mathf.Floor(timer);
                 if (floorTimer == beat.Time)
                 {
-                    if(beat.Unit == lastHitUnit)
+                    if (beat.Unit == lastHitUnit)
                     {
                         Debug.Log("correct " + beat.UnitID + " " + lastHitUnit.UnitId);
                         var hit = new Hit(true, lastHitUnit.UnitId, floorTimer);
@@ -126,5 +135,7 @@ public class UnitController : MonoBehaviour
 
             yield return null;
         }
+
+        GameManager.I.SetState(GameState.Scoring);
     }
 }

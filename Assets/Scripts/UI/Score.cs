@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Score : MonoBehaviour
 {
@@ -14,29 +15,39 @@ public class Score : MonoBehaviour
     {
         scoring = 0;
 
+        GameManager.OnGameStateChanged += OnGameStateChanged;
         ReactionManager.I.OnNewHitAdded += OnNewHit;
     }
 
     private void OnDestroy()
     {
+        GameManager.OnGameStateChanged -= OnGameStateChanged;
         ReactionManager.I.OnNewHitAdded -= OnNewHit;
+    }
+
+    private void OnGameStateChanged(GameState state)
+    {
+        if(state == GameState.PlayerTurn)
+        {
+            SetScore(0);
+        }
     }
 
     private void OnNewHit(bool value)
     {
         if (value)
         {
-            Scoring++;
-        }
+            SetScore(scoring++);
+        }/* 
         else
         {
-            Scoring--;
+            SetScore(scoring--);
 
             if (scoring < 0)
             {
-                scoring = 0;
+                SetScore(0);
             }
-        }
+        } */
     }
 
     private void SetScore(int value)
