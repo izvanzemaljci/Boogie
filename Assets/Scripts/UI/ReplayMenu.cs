@@ -25,6 +25,8 @@ public class ReplayMenu : MonoBehaviour
         UIManager.I.ShowReplayMenu();
 
         replayButton.onClick.AddListener(Replay);
+
+        songSelection.onClick.AddListener(ShowSongSelection);
     }
 
     private void Replay()

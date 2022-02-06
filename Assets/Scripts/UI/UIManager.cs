@@ -7,9 +7,6 @@ public class UIManager : MonoBehaviour
     private Timer timer;
 
     [SerializeField]
-    private GameObject startMenu;
-
-    [SerializeField]
     private AlphaModifier tutorialInstruction;
 
     [SerializeField]
@@ -77,8 +74,6 @@ public class UIManager : MonoBehaviour
     {
         songSelection.gameObject.SetActive(true);
 
-        startMenu.SetActive(true);
-
         songSelection.FadeTo(1f);
     }
 
@@ -87,7 +82,5 @@ public class UIManager : MonoBehaviour
         songSelection.FadeTo(0f);
 
         songSelection.gameObject.SetActive(false);
-
-        startMenu.SetActive(false);
     }
 }

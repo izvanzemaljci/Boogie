@@ -29,7 +29,7 @@ public class Score : MonoBehaviour
     {
         if(state == GameState.PlayerTurn)
         {
-            SetScore(0);
+            Scoring = 0;
         }
     }
 
@@ -37,7 +37,7 @@ public class Score : MonoBehaviour
     {
         if (value)
         {
-            SetScore(scoring++);
+            Scoring++;
         }/* 
         else
         {

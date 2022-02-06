@@ -6,9 +6,6 @@ using UnityEngine.UI;
 public class SongSelection : MonoBehaviour
 {
     [SerializeField]
-    private GameObject startScreen;
-
-    [SerializeField]
     private UISong[] UISongs;
 
     private void Start()
@@ -25,7 +22,7 @@ public class SongSelection : MonoBehaviour
 
         SongManager.I.PlayTutorial(songAsset);
 
-        startScreen.SetActive(false);
+        UIManager.I.HideSongSelection();
     }
 
 

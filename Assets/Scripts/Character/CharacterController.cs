@@ -36,7 +36,6 @@ public class CharacterController : MonoBehaviour
     {
         if (state == GameState.PlayerTurn)
         {
-            transform.position = initialPosition;
             enableInput = true;
         }
         else
@@ -49,6 +48,8 @@ public class CharacterController : MonoBehaviour
     {
         if (!enableInput)
         {
+            transform.position = initialPosition;
+
             return;
         }
 

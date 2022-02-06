@@ -49,6 +49,10 @@ public class UnitController : MonoBehaviour
         {
             StartCoroutine(ShowInstructions());
         }
+        else
+        {
+            enableInput = false;
+        }
     }
 
     private IEnumerator ShowInstructions()

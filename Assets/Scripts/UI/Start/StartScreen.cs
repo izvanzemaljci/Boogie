@@ -7,6 +7,9 @@ public class StartScreen : MonoBehaviour
     private Button titleButton;
 
     [SerializeField]
+    private GameObject titleScreen;
+
+    [SerializeField]
     private AlphaModifier mainMenuAlpha;
 
     [SerializeField]
@@ -30,6 +33,7 @@ public class StartScreen : MonoBehaviour
     private void ShowMainMenu()
     {
         titleButton.gameObject.SetActive(false);
+        titleScreen.SetActive(false);
         mainMenu.gameObject.SetActive(true);
 
         mainMenuAlpha.FadeTo(1f);
